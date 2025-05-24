@@ -1,20 +1,11 @@
-/*
-import { db } from "./client"; // seu arquivo de conexão drizzle
-import { users } from "./schema";
-
-export async function getAllUsers() {
-  return db.select().from(users);
-}
-*/
-
 import { users } from "@root/db/schema";
+import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 
-export default class {
-  db: any;
+export class UserRepository {
+  db: NodePgDatabase;
  
-  constructor(db: any) {
+  constructor(db: NodePgDatabase) {
     this.db = db;
-    console.log('db class', typeof db);
   }
 
   async getAll() {
